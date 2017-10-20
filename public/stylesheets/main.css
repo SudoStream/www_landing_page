@@ -1,0 +1,174 @@
+
+@font-face {
+    font-family: 'simplifica';
+    src: url('/assets/fonts/simplifica.ttf') format('truetype');
+}
+
+html, body {
+    height: 100%;
+}
+
+* {
+    font-family: Helvetica, serif;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    color: #6c6f73
+}
+
+h1, h2, h3, h4, h5 {
+    color: #eee;
+}
+
+h1 {
+    font-family: 'simplifica', sans-serif;
+}
+
+.simplifica {
+    font-family: 'simplifica', sans-serif;
+    color: black;
+    font-size: xx-large;
+}
+
+.simplifica-white {
+    font-family: 'simplifica', sans-serif;
+    color: white;
+    font-size: xx-large;
+}
+
+#registerInterestModalLabel {
+    color: black;
+    font-family: 'simplifica', sans-serif;
+    font-size: xx-large;
+}
+
+
+h2{
+    margin-bottom: 2rem;
+}
+
+p {
+    font-size: medium;
+}
+
+li {
+    font-size: large;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#landing-content ul{
+    list-style-type: circle;
+}
+
+#signup-section {
+    background-image: url('/assets/images/signupBackground.jpeg');
+    color: white;
+    background-repeat:  repeat-y;
+    background-size: 100% 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
+#dropdown-menu-items {
+    width: 20rem;
+}
+#theDropdown button{
+    font-size: smaller;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+#stage {
+    background: url('/assets/images/stage.jpeg') center center no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#stage-caption {
+    font-size: 1.4rem;
+    font-weight: 200;
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(0, 50, 130, 0.75);
+    padding: 3rem 5rem;
+}
+
+#stage-caption-register {
+    font-size: 1.4rem;
+    font-weight: 200;
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(10, 80, 230, 0.75);
+    padding: 3rem 5rem;
+}
+
+
+#landing-content {
+    text-align: left;
+}
+
+#landing-content li {
+    font-size: medium;
+    font-weight: bold;
+}
+
+#stage-caption h1 {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#stage-caption h2 {
+    color: white;
+}
+#ttt-logo-front-page {
+    margin-bottom: 2.5rem;
+}
+
+.ttt-icon-writing {
+    font-family: 'simplifica', sans-serif;
+}
+
+#register-btn {
+    margin-top: 3rem;
+}
+
+#timetoteach-writing {
+    font-family: 'simplifica', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#signup-form {
+    clear: both;
+    display: block;
+}
+
+.jumbotron {
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
+}
+
+hr {
+    color: #eee;
+}
+
+.signup-to-community {
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: x-large;
+}
+
