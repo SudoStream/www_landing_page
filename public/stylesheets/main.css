@@ -22,6 +22,11 @@ h1, h2, h3, h4, h5 {
     color: #eee;
 }
 
+#thesubtitle {
+    margin-left: 3rem;
+    font-size: xx-large;
+    font-style: italic;
+}
 h1 {
     font-family: 'simplifica', sans-serif;
 }
@@ -32,9 +37,17 @@ h1 {
     font-size: xx-large;
 }
 
+.simplifica-inline {
+    font-family: 'simplifica', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+}
+
 .simplifica-white {
     font-family: 'simplifica', sans-serif;
     color: white;
+    font-weight: bold;
     font-size: xx-large;
 }
 
@@ -55,6 +68,7 @@ p {
 
 li {
     font-size: large;
+    margin-bottom: 0.5rem;
 }
 
 ul {
@@ -66,11 +80,10 @@ ul {
 }
 
 #signup-section {
-    background-image: url('/assets/images/signupBackground.jpeg');
-    color: white;
-    background-repeat:  repeat-y;
-    background-size: 100% 100%;
-    min-height: 100%;
+    background: url('/assets/icons/ttt_logo_white_cropped.png') center center no-repeat;
+    background-size: cover;
+    background-color: #f2f2f2;
+    height: 100%;
     width: 100%;
 }
 
@@ -111,7 +124,7 @@ ul {
     max-width: 60rem;
     margin: 0 auto;
     text-align: center;
-    background: rgba(10, 80, 230, 0.75);
+    background: rgba(10, 170, 255, 0.2);
     padding: 3rem 5rem;
 }
 
