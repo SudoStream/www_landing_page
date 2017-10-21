@@ -32,14 +32,15 @@ class HomeController @Inject()(cc: ControllerComponents, mailerService: MailerSe
   def thankyou() = Action { implicit request: Request[AnyContent] =>
     val user = User(
       firstName = request.body.asFormUrlEncoded.get("firstName").head,
+
       surname = if (request.body.asFormUrlEncoded.get("surname").head.isEmpty) None
       else Some(request.body.asFormUrlEncoded.get("surname").head),
+
       email = request.body.asFormUrlEncoded.get("email").head,
+
       localAuthority = if (request.body.asFormUrlEncoded.get("localAuthority").head.isEmpty) None
       else Some(request.body.asFormUrlEncoded.get("localAuthority").head)
     )
-    println(s"OK ${request.attrs.toString}")
-    println(s"dokies ${request.body.toString}")
 
     mailerService.sendEmail(user)
     Ok(views.html.thank_you_for_signing_up())

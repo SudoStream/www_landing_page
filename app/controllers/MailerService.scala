@@ -12,16 +12,14 @@ class MailerService @Inject()(mailerClient: MailerClient) {
   def sendEmail(user: User) = {
     val cid = "1234"
     val email = Email(
-      "Simple email",
-      "Time to TEACH Team <team@timetoteach.zone>",
-      Seq(s"${user.firstName} ${user.surname.getOrElse("")} <${user.email}>"),
-//      attachments = Seq(
-//        AttachmentFile("image.jpg", new File(routes.Assets.versioned("images/bluedot.gif").absoluteURL()), contentId = Some(cid))
-//      ),
-      // sends text, HTML or both...
-
-//      bodyText = Some("A text message"),
-      bodyHtml = Some(s"""<html><body><p>An <b>html</b> message with cid <img src="cid:$cid"></p></body></html>""")
+      "Welcome to Time to TEACH",
+      from = "Time to TEACH Team <team@timetoteach.zone>",
+      Seq(s"<${user.email}>"),
+      bodyHtml = Some(
+        s"""<html><body>
+           |<p>Hi ${user.firstName}</p>
+           |<p>Welcome to the <b>Time to TEACH</b> community!</p></body></html>""".stripMargin),
+      replyTo = Seq("Time to TEACH Team <team@timetoteach.zone>")
     )
     mailerClient.send(email)
   }
