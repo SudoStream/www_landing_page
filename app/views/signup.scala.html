@@ -1,4 +1,4 @@
-@()
+@(postUrl: Call)(implicit request: RequestHeader)
 
 @main("Time To Teach") {
 
@@ -11,91 +11,92 @@
 
                 <div class="p-lead signup-to-community">Sign up to join the community!</div>
 
-
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <form id="needs-validation">
+                        <form id="needs-validation" action="@postUrl.url" method="post">
+                            @helper.CSRF.formField
+
                             <div class="form-group">
-                                <input type="text" class="form-control" id="firstNameId" aria-describedby="firstNameHelp" placeholder="Enter First Name" required>
+                                <input type="text" class="form-control" name="firstName" id="firstNameId" aria-describedby="firstNameHelp" placeholder="Enter First Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="surnameId" aria-describedby="surnameHelp" placeholder="Enter Surname">
+                                <input type="text" class="form-control" name="surname" id="surnameId" aria-describedby="surnameHelp" placeholder="Enter Surname">
                             </div>
 
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
                             </div>
 
                             <div class="form-group d-flex ml-auto ">
-                                <input type="text" class="form-control" id="localAuthorityId" aria-describedby="localAuthorityHelp" placeholder="Select Local Authority">
+                                <input type="text" class="form-control" name="localAuthority" id="localAuthorityId" aria-describedby="localAuthorityHelp" placeholder="Select Local Authority">
 
                                 <div id="theDropdown" class="dropup form-inline">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </button>
                                     <div id="dropdown-menu-items" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
-                                        <button onclick='myFunction(this)' value='Other' class="dropdown-item">Other</button>
+                                        <button onclick='updateLocalAuthorityId(this)' value='Other' class="dropdown-item">Other</button>
                                         <div class="dropdown-divider"></div>
-                                        <button onclick='myFunction(this)' value='Aberdeen City' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Aberdeen City' class="dropdown-item">
                                             Aberdeen City</button>
-                                        <button onclick='myFunction(this)' value='Aberdeenshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Aberdeenshire' class="dropdown-item">
                                             Aberdeenshire</button>
-                                        <button onclick='myFunction(this)' value='Angus' class="dropdown-item">Angus</button>
-                                        <button onclick='myFunction(this)' value='Argyll and Bute' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Angus' class="dropdown-item">Angus</button>
+                                        <button onclick='updateLocalAuthorityId(this)' value='Argyll and Bute' class="dropdown-item">
                                             Argyll and Bute</button>
-                                        <button onclick='myFunction(this)' value='Edinburgh City' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Edinburgh City' class="dropdown-item">
                                             Edinburgh City</button>
-                                        <button onclick='myFunction(this)' value='Clackmannanshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Clackmannanshire' class="dropdown-item">
                                             Clackmannanshire</button>
-                                        <button onclick='myFunction(this)' value='Dumfries and Galloway' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Dumfries and Galloway' class="dropdown-item">
                                             Dumfries and Galloway</button>
-                                        <button onclick='myFunction(this)' value='Dundee City' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Dundee City' class="dropdown-item">
                                             Dundee City</button>
-                                        <button onclick='myFunction(this)' value='East Ayrshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='East Ayrshire' class="dropdown-item">
                                             East Ayrshire</button>
-                                        <button onclick='myFunction(this)' value='East Dunbartonshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='East Dunbartonshire' class="dropdown-item">
                                             East Dunbartonshire</button>
-                                        <button onclick='myFunction(this)' value='East Lothian' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='East Lothian' class="dropdown-item">
                                             East Lothian</button>
-                                        <button onclick='myFunction(this)' value='East Renfrewshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='East Renfrewshire' class="dropdown-item">
                                             East Renfrewshire</button>
-                                        <button onclick='myFunction(this)' value='Falkirk' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Falkirk' class="dropdown-item">
                                             Falkirk</button>
-                                        <button onclick='myFunction(this)' value='Fife' class="dropdown-item">Fife</button>
-                                        <button onclick='myFunction(this)' value='Glasgow City' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Fife' class="dropdown-item">Fife</button>
+                                        <button onclick='updateLocalAuthorityId(this)' value='Glasgow City' class="dropdown-item">
                                             Glasgow City</button>
-                                        <button onclick='myFunction(this)' value='Highland' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Highland' class="dropdown-item">
                                             Highland</button>
-                                        <button onclick='myFunction(this)' value='Inverclyde' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Inverclyde' class="dropdown-item">
                                             Inverclyde</button>
-                                        <button onclick='myFunction(this)' value='Midlothian' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Midlothian' class="dropdown-item">
                                             Midlothian Council</button>
-                                        <button onclick='myFunction(this)' value='Moray' class="dropdown-item">Moray</button>
-                                        <button onclick='myFunction(this)' value='Comhairle nan Eilean Siar (Western Isles Council)' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Moray' class="dropdown-item">Moray</button>
+                                        <button onclick='updateLocalAuthorityId(this)' value='Comhairle nan Eilean Siar (Western Isles Council)' class="dropdown-item">
                                             Comhairle nan Eilean Siar (Western Isles)</button>
-                                        <button onclick='myFunction(this)' value='North Ayrshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='North Ayrshire' class="dropdown-item">
                                             North Ayrshire</button>
-                                        <button onclick='myFunction(this)' value='North Lanarkshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='North Lanarkshire' class="dropdown-item">
                                             North Lanarkshire</button>
-                                        <button onclick='myFunction(this)' value='Orkney Islands' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Orkney Islands' class="dropdown-item">
                                             Orkney Islands</button>
-                                        <button onclick='myFunction(this)' value='Perth & Kinross' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Perth & Kinross' class="dropdown-item">
                                             Perth & Kinross</button>
-                                        <button onclick='myFunction(this)' value='Renfrewshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Renfrewshire' class="dropdown-item">
                                             Renfrewshire</button>
-                                        <button onclick='myFunction(this)' value='Scottish Borders' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Scottish Borders' class="dropdown-item">
                                             Scottish Borders</button>
-                                        <button onclick='myFunction(this)' value='Shetland Islands' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Shetland Islands' class="dropdown-item">
                                             Shetland Islands</button>
-                                        <button onclick='myFunction(this)' value='South Ayrshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='South Ayrshire' class="dropdown-item">
                                             South Ayrshire</button>
-                                        <button onclick='myFunction(this)' value='South Lanarkshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='South Lanarkshire' class="dropdown-item">
                                             South Lanarkshire</button>
-                                        <button onclick='myFunction(this)' value='Stirling' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Stirling' class="dropdown-item">
                                             Stirling</button>
-                                        <button onclick='myFunction(this)' value='West Dunbartonshire' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='West Dunbartonshire' class="dropdown-item">
                                             West Dunbartonshire</button>
-                                        <button onclick='myFunction(this)' value='West Lothian' class="dropdown-item">
+                                        <button onclick='updateLocalAuthorityId(this)' value='West Lothian' class="dropdown-item">
                                             West Lothian</button>
                                     </div>
                                 </div>
@@ -113,14 +114,9 @@
     </section>
 
     <script>
-            function myFunction(objButton) {
+            function updateLocalAuthorityId(objButton) {
                 document.getElementById("localAuthorityId").value = objButton.value
             }
-
-            document.getElementById("dropdownMenuButton").addEventListener("click", function () {
-                document.getElementById("signup-section").style.minHeight = "100%";
-                document.getElementById("signup-section").style.height = "100%";
-            });
     </script>
 }
 
