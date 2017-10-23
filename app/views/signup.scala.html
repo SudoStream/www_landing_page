@@ -127,8 +127,7 @@
                                 </div>
                             </div>
 
-
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <button onclick='theSubmitButtonPressed(this)' id="thesubmit-button" type="submit" class="btn btn-primary btn-lg">Submit</button>
 
                         </form>
                     </div>
@@ -145,6 +144,10 @@
 
             function updatePositionTypeId(objButton) {
                 document.getElementById("positionTypeId").value = objButton.value
+            }
+
+            function theSubmitButtonPressed(objButton) {
+                document.getElementById("thesubmit-button").disabled = true;
             }
     </script>
 }
