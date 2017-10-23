@@ -14,11 +14,11 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <form id="needs-validation" action="@postUrl.url" method="post">
+                        <form id="needs-validation" action="@postUrl.url" method="post" onchange="onFormChange()" onsubmit="return onFormSubmit()" novalidate>
                             @helper.CSRF.formField
 
                             <div class="form-group">
-                                <input type="text" class="form-control" name="firstName" id="firstNameId" aria-describedby="firstNameHelp" placeholder="Enter First Name" required>
+                                <input type="text" class="form-control" name="firstName" id="firstNameId" aria-describedby="firstNameHelp" placeholder="Enter First Name" required autofocus>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="surname" id="surnameId" aria-describedby="surnameHelp" placeholder="Enter Surname">
@@ -30,7 +30,7 @@
 
 
                             <div class="form-group d-flex ml-auto ">
-                                <input type="text" class="form-control" name="positionType" id="positionTypeId" aria-describedby="positionTypeHelp" placeholder="Select Position Type" required>
+                                <input type="text" class="form-control" name="positionType" id="positionTypeId" aria-describedby="positionTypeHelp" placeholder="Select Position Type" required onchange="">
 
                                 <div id="theDropdown" class="dropup form-inline">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,12 +38,18 @@
                                     <div id="dropdown-menu-items" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
                                         <button onclick='updatePositionTypeId(this)' value='Class teacher' class="dropdown-item">
                                             Class teacher</button>
-                                        <button onclick='updatePositionTypeId(this)' value='Principal teacher' class="dropdown-item">Principal teacher</button>
-                                        <button onclick='updatePositionTypeId(this)' value='Senior management' class="dropdown-item">Senior management</button>
-                                        <button onclick='updatePositionTypeId(this)' value='Peripatetic teacher' class="dropdown-item">Peripatetic teacher</button>
-                                        <button onclick='updatePositionTypeId(this)' value='Teacher' class="dropdown-item">Teacher</button>
-                                        <button onclick='updatePositionTypeId(this)' value='Student teacher' class="dropdown-item">Student teacher</button>
-                                        <button onclick='updatePositionTypeId(this)' value='Management' class="dropdown-item">Management</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Principal teacher' class="dropdown-item">
+                                            Principal teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Senior management' class="dropdown-item">
+                                            Senior management</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Peripatetic teacher' class="dropdown-item">
+                                            Peripatetic teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Teacher' class="dropdown-item">
+                                            Teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Student teacher' class="dropdown-item">
+                                            Student teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Management' class="dropdown-item">
+                                            Management</button>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +133,8 @@
                                 </div>
                             </div>
 
-                            <button onclick='theSubmitButtonPressed(this)' id="thesubmit-button" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <button onclick='theSubmitButtonPressed(this)' id="thesubmit-button" type="submit" class="btn btn-primary btn-lg">
+                                Submit</button>
 
                         </form>
                     </div>
@@ -139,16 +146,38 @@
 
     <script>
             function updateLocalAuthorityId(objButton) {
-                document.getElementById("localAuthorityId").value = objButton.value
+                document.getElementById("localAuthorityId").value = objButton.value;
+                document.getElementById("localAuthorityId")
             }
-
+    </script>
+    <script>
             function updatePositionTypeId(objButton) {
-                document.getElementById("positionTypeId").value = objButton.value
+                document.getElementById("positionTypeId").value = objButton.value;
             }
 
-            function theSubmitButtonPressed(objButton) {
-                document.getElementById("thesubmit-button").disabled = true;
+            var submitPressed = false;
+            function theSubmitButtonPressed() {
+                submitPressed = true;
             }
+
+            function onFormSubmit() {
+                return submitPressed === true;
+            }
+
+            (function () {
+                "use strict";
+                window.addEventListener("load", function () {
+                    var form = document.getElementById("needs-validation");
+                    form.addEventListener("submit", function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add("was-validated");
+                    }, false);
+                }, false);
+            }());
+
     </script>
 }
 

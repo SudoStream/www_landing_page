@@ -23,7 +23,6 @@ h1, h2, h3, h4, h5 {
 }
 
 #thesubtitle {
-    margin-left: 3rem;
     font-size: xx-large;
     font-style: italic;
 }
@@ -72,6 +71,8 @@ li {
 }
 
 ul {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
@@ -91,21 +92,23 @@ ul {
     width: 20rem;
 }
 #theDropdown button{
-    font-size: smaller;
+    /*font-size: smaller;*/
 }
 .scrollable-menu {
     height: auto;
-    max-height: 200px;
+    max-height: 400px;
     overflow-x: hidden;
 }
 #stage {
     background: url('/assets/images/stage.jpeg') center center no-repeat;
-    background-size: cover;
     color: white;
-    height: 100%;
-    width: 100%;
     display: flex;
     align-items: center;
+    background-repeat:  repeat-y;
+    background-size: 100% 100%;
+    min-height: 100%;
+    width: 100%;
+
 }
 
 #stage-caption {
@@ -148,6 +151,7 @@ ul {
     color: white;
 }
 #ttt-logo-front-page {
+    margin-top: 2rem;
     margin-bottom: 2.5rem;
 }
 

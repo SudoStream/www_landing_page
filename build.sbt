@@ -1,7 +1,7 @@
 name := """www_landing_page"""
 organization := "zone.timetoteach"
 
-version := "0.0.1"
+version := "0.0.3"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
