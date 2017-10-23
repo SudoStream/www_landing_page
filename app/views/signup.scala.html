@@ -28,20 +28,43 @@
                                 <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
                             </div>
 
+
                             <div class="form-group d-flex ml-auto ">
-                                <input type="text" class="form-control" name="localAuthority" id="localAuthorityId" aria-describedby="localAuthorityHelp" placeholder="Select Local Authority">
+                                <input type="text" class="form-control" name="positionType" id="positionTypeId" aria-describedby="positionTypeHelp" placeholder="Select Position Type" required>
 
                                 <div id="theDropdown" class="dropup form-inline">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </button>
                                     <div id="dropdown-menu-items" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
-                                        <button onclick='updateLocalAuthorityId(this)' value='Other' class="dropdown-item">Other</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Class teacher' class="dropdown-item">
+                                            Class teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Principal teacher' class="dropdown-item">Principal teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Senior management' class="dropdown-item">Senior management</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Peripatetic teacher' class="dropdown-item">Peripatetic teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Teacher' class="dropdown-item">Teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Student teacher' class="dropdown-item">Student teacher</button>
+                                        <button onclick='updatePositionTypeId(this)' value='Management' class="dropdown-item">Management</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group d-flex ml-auto ">
+                                <input type="text" class="form-control" name="localAuthority" id="localAuthorityId" aria-describedby="localAuthorityHelp" placeholder="Select Local Authority" required>
+
+                                <div id="theDropdown" class="dropup form-inline">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    </button>
+                                    <div id="dropdown-menu-items" class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
+                                        <button onclick='updateLocalAuthorityId(this)' value='Other' class="dropdown-item">
+                                            Other</button>
                                         <div class="dropdown-divider"></div>
                                         <button onclick='updateLocalAuthorityId(this)' value='Aberdeen City' class="dropdown-item">
                                             Aberdeen City</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Aberdeenshire' class="dropdown-item">
                                             Aberdeenshire</button>
-                                        <button onclick='updateLocalAuthorityId(this)' value='Angus' class="dropdown-item">Angus</button>
+                                        <button onclick='updateLocalAuthorityId(this)' value='Angus' class="dropdown-item">
+                                            Angus</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Argyll and Bute' class="dropdown-item">
                                             Argyll and Bute</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Edinburgh City' class="dropdown-item">
@@ -62,7 +85,8 @@
                                             East Renfrewshire</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Falkirk' class="dropdown-item">
                                             Falkirk</button>
-                                        <button onclick='updateLocalAuthorityId(this)' value='Fife' class="dropdown-item">Fife</button>
+                                        <button onclick='updateLocalAuthorityId(this)' value='Fife' class="dropdown-item">
+                                            Fife</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Glasgow City' class="dropdown-item">
                                             Glasgow City</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Highland' class="dropdown-item">
@@ -71,7 +95,8 @@
                                             Inverclyde</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Midlothian' class="dropdown-item">
                                             Midlothian Council</button>
-                                        <button onclick='updateLocalAuthorityId(this)' value='Moray' class="dropdown-item">Moray</button>
+                                        <button onclick='updateLocalAuthorityId(this)' value='Moray' class="dropdown-item">
+                                            Moray</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='Comhairle nan Eilean Siar (Western Isles Council)' class="dropdown-item">
                                             Comhairle nan Eilean Siar (Western Isles)</button>
                                         <button onclick='updateLocalAuthorityId(this)' value='North Ayrshire' class="dropdown-item">
@@ -116,6 +141,10 @@
     <script>
             function updateLocalAuthorityId(objButton) {
                 document.getElementById("localAuthorityId").value = objButton.value
+            }
+
+            function updatePositionTypeId(objButton) {
+                document.getElementById("positionTypeId").value = objButton.value
             }
     </script>
 }

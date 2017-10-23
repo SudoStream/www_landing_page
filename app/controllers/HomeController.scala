@@ -38,11 +38,16 @@ class HomeController @Inject()(cc: ControllerComponents, mailerService: MailerSe
 
       email = request.body.asFormUrlEncoded.get("email").head,
 
+      positionType = if (request.body.asFormUrlEncoded.get("positionType").head.isEmpty) None
+      else Some(request.body.asFormUrlEncoded.get("positionType").head),
+
       localAuthority = if (request.body.asFormUrlEncoded.get("localAuthority").head.isEmpty) None
       else Some(request.body.asFormUrlEncoded.get("localAuthority").head)
     )
 
     mailerService.sendEmail(user)
+
+
     Ok(views.html.thank_you_for_signing_up())
   }
 
