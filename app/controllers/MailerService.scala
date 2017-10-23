@@ -39,7 +39,7 @@ class MailerService @Inject()(mailerClient: MailerClient, userWriterDao: UserWri
            |<p>Hi ${user.firstName}</p>
            |<p>Welcome to the <b>Time to TEACH</b> community! ...we are very excited to have you on board! </p></body></html>
            |<p>
-           | Let us first introduce ourselves...we are a very small team of 2! - Andy is our IT expert with over 15 years
+           | Let us first introduce ourselves...we are a small, but dedicated, team of 2! - Andy is our IT expert with over 15 years
            | experience, and Yvonne is a primary teacher. We are passionate about helping to reduce the stress of
            | teachers' workload.
            |</p>
